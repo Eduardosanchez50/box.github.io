@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de ventas</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header, footer {
+            background-color: #d80b0b;
+            color: #000000;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+        }
+        nav {
+            background-color: #444;
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        .vertical-menu {
+            width: 200px;
+        }
+        .vertical-menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .vertical-menu li {
+            padding: 8px;
+            margin-bottom: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+        .vertical-menu li:hover {
+            background-color: #444;
+            cursor: pointer;
+        }
+        .horizontal-menu {
+            display: flex;
+            justify-content: space-around;
+            background-color: #ff0000;
+            padding: 10px 0;
+        }
+        .horizontal-menu li {
+            display: inline;
+        }
+        .horizontal-menu li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+        .horizontal-menu li a:hover {
+            background-color: #ff0000;
+        }
+        main {
+            display: flex;
+            flex: 1;
+            justify-content: space-between;
+        }
+        section {
+            padding: 20px;
+            width: 30%; /* Cambiado para que los productos ocupen menos espacio */
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .image-container {
+            text-align: center;
+            margin: auto;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Productos de box</h1>
+        <P>Catalogo</P>
+    </header>
+    
+    <main>
+        
+       <section>
+        <div class="image-container">
+        <img src= "images (1).jpeg" alt="Imagen" border="0" whidth="200" height="200" id="imagen-iphone">
+        </div>
+           
+        <div align = center>
+        <h3>$ 1,200.00 </h3>
+        <label for="claridad">Cantidad</label>
+        <input type="number" id="cantidad-iphone" name="cantidad-iphone" min="0" max="10"><br>
+        <button onclick="buyProduct('cantidad-iphone', 'imagen-iphone')">Comprar</button>
+        </div>
+        
+        
+        </section>
+        
+       <section>
+        <div class="image-container">
+        <img src= "descarga.jpeg" alt="Imagen" border="0" whidth="200" height="200" id="imagen-cadenas">
+        </div>
+           
+        <div align = center>
+        <h3>$ 350.00 </h3>
+        <label for="claridad">Cantidad</label>
+        <input type="number" id="cantidad-cadenas" name="cantidad-cadenas" min="0" max="10"><br>
+        <button onclick="buyProduct('cantidad-cadenas', 'imagen-cadenas')">Comprar</button>
+        </div>
+        
+        
+        </section>
+        
+       <section>
+        <div class="image-container">
+        <img src= "images.jpeg" alt="Imagen" border="0" whidth="200" height="200" id="imagen-laptop">
+        </div>
+           
+        <div align = center>
+        <h3>$ 800.00 </h3>
+        <label for="claridad">Cantidad</label>
+        <input type="number" id="cantidad-laptop" name="cantidad-laptop" min="0" max="10"><br>
+        <button onclick="buyProduct('cantidad-laptop', 'imagen-laptop')">Comprar</button>
+        </div>
+        
+        
+        </section>
+
+    </main>
+    
+    <footer>
+        <p>&copy;</p>
+    </footer>
+   
+    <script>
+        // JavaScript para manejar la compra de productos
+        function buyProduct(cantidadId, imagenId) {
+            const cantidadInput = document.getElementById(cantidadId);
+            const cantidad = parseInt(cantidadInput.value);
+            const imagen = document.getElementById(imagenId);
+            
+            if (cantidad > 0) {
+                cantidadInput.value = cantidad - 1; // Resta 1 a la cantidad
+                if (cantidad === 1) {
+                    imagen.style.display = 'none'; // Oculta la imagen si la cantidad llega a cero
+                }
+            }
+        }
+    </script>
+</body>
+</html>
